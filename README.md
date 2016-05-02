@@ -86,7 +86,103 @@ The section provides you a program that demonstrates the usage of the super keyw
 
 In the given program you have two classes namely Sub_class and Super_class, both have a method named display() with
 different implementations, and a variable named num with different values. We are invoking display() method of both
-classes and printing the value of the variable num of both parents, 
+classes and printing the value of the variable num of both classes, here you can observe that we have used super
+key word to differentiate the members of super class from sub class.
+
+     class Super_class {
+      int num=20;
+      //display method of superclass
+      public void display() {
+       System.out.println("This is the display method of superclass");
+       }
+      }
+      
+      public class Sub_class extends Super_class {
+       int num = 10;
+       
+       //display method of sub class
+       public void display() {
+        System.out.println("This is the display method of subclass");
+        }
+        
+       public void my_method() {
+        //Instantiating subclass
+        Sub_class sub = new Sub_class();
+        
+        //Invoking the display() method of subclass
+        sub.display();
+        
+        //Invoking the display() method of the superclass
+        super.display();
+        
+        //printing the value of variable num of a subclass
+        System.out.println("value of the variable named num in subclass"+sub.num);
+        
+        //printing the value of variable num of a superclass
+        System.out.println("value of the variable named num is super class"+super.num);
+        }
+        
+        public static void main(String args[]) {
+         Sub_class obj = new Sub_class();
+         obj.my_method();
+             }
+        }
+        
+<h2>Invoking Superclass constructor</h2>
+If a class is inheriting the properties of another class, the subclass automatically requires the
+default constructor of the super class. But if you want to call a parameterized constructor of 
+the super class, you need to use the super keyword as shown below:
+           
+            super(values);
+            
+The program in this section demonstrates how to use the super keyword to invoke the parameterized constructor
+of the super class. This program contains a super class and a sub class, where the super class contains a
+parameterized constructor which accepts a string value, and we used the super keyword to invoke the parameterized
+consturctor of the super class.
+
+        class Superclass {
+         int age;
+         
+         Superclass(int age) {
+          this.age=age;
+          }
+          
+          public void getAge(){
+           System.out.println("The value of the variable named age in superclass is" + age);
+           }
+          }
+          
+          public class Subclass extends Superclass {
+           Subclass(int age) {
+            super(age);
+            }
+            
+          public static void main(String args[]) {
+            Subclass s = new Subclass(24);
+            s.getAge();
+            }
+        }
+        
+<h2>Is-A Relationship</h2>
+Is-A is a way of saying: this object is a type of object. Let us see how the extends keyword is used to 
+achieve inheritance.
+
+        public class Animal {
+         }
+        
+        public class Mammal extends Animal {
+        }
+        
+        public class Reptile extends Animal {
+        }
+        
+        public class Dog extends Mammal {
+        }
+    
+    Now, based on the above example, in object oriented terms, the following are true:
+     - animal is the superclass of Reptile class
+     - animal is the superclass of Reptile class
+       
         
 
 
