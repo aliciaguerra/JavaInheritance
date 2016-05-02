@@ -1,1 +1,2 @@
-# JavaInheritence
+# Java Inheritance
+
