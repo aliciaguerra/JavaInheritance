@@ -122,3 +122,10 @@ Now, you study the following program carefully and determine its output.
 Here, we instantiate two Salary objects, one using a salary reference s, and the other using an Employee reference e.
 
 While invoking s.mailCheck() the compiler sees mailCheck() in the Salary class at compile tim, and the JVM invokes mailCheck() in the Salary class at run time.
+
+Invoking mailCheck() on e is quite different because e is an employee reference. When the compiler sees e.mailCheck(),
+the compiler sees mailCheck() method in the Employee class.
+
+The behavior is referred to as virtual method invocation, and the methods are referred to as virtual methods.
+All methods in Java behave in this manner, whereby an overridden method is invoked at run time, no matter
+what data type the reference was used in the source code at compile time.
