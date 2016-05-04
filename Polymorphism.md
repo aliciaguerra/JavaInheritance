@@ -106,3 +106,19 @@ override method.
                             }
                           }
                           
+Now, you study the following program carefully and determine its output.
+
+                         public class VirtualDemo {
+                          public static void main(String args[]){
+                           Salary s = new Salary("Mohd Matashin", "Ambehta, UP", 3, 3600.00);
+                           Empolyee e = new Salary("John Adams", "Boston, MA", 2, 2400.00);
+                           System.out.println("Call mailcheck using salary reference");
+                           s.mailCheck();
+                           System.out.println("Call mailcheck using Employee reference");
+                           e.mailCheck();
+                               }
+                              }
+                              
+Here, we instantiate two Salary objects, one using a salary reference s, and the other using an Employee reference e.
+
+While invoking s.mailCheck() the compiler sees mailCheck() in the Salary class at compile tim, and the JVM invokes mailCheck() in the Salary class at run time.
