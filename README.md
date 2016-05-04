@@ -225,7 +225,89 @@ We can assure that Mammal is actually an Animal with the use of the instance ope
    
                   public interface Animal {
                    }
+                  public class Mammal implements Animal {
+                  }
+                  public class Dog implements Mammal {
+                  }
+                  
+    <h2>instanceof Keyword</h2>
+    Let us use the instanceof operator to check determine whether Mammal is actually an Animal, and dog is actually
+    an animal.
+    
+                   interface Animal{}
+                   class Mammal implements Animal{}
+                   public class Dog extends Mammal {
+                     public static void main(String args[]){
+                      Mammal m = new Mammal();
+                      Dog d = new Dog();
+                      System.out.println(m instanceof Animal);
+                      System.out.println(d instanceof Mammal);
+                      System.out.println(d instanceof Animal);
+                       }
+                      }
+    
+    This would produce the following result:
+    
+                    true
+                    true
+                    true
+                    
+    <h2>Has-A Relationship</h2>
+    These relationships are based mainly on usage. This determines whether a certain class HAS-A certain thing.
+    This relationship helps reduce the duplication of code as well as bugs.
+    
+                       public class Vehicle{}
+                       public class Speed{}
+                       public class Van extends Vehicle {
+                        private Speed sp;
+                        }
+                    
+    This shows that Van Has-A speed. By having a separate class for Speed, we do not have to put the entire
+    code that belongs to speed inside the van class, which makes it possible to reuse the speed class in
+    multiple applications.
+    
+    In object-oriented feature, the users do not need to bother about which object is doing the real work. To
+    achieve this, the Van class hides the implementation details from the users of the van class. So basically what
+    happens is the users would ask the Van class to do a certain action and the Van class would either do the work by itself or ask another class to perform the action.
+    
+    <h2>Types of Inheritance</h2>
+    
+    Single Inheritance
+                  
+                  public class A{
+                   }
+                  public class B extends A {
+                  }
+    
+    Multi Level Inheritance
+                  
+                   public class A{}
+                  public class B extends A{}
+                   public class C extends B{}
+                  
+    Hierarchal Inheritance
+    
+                   public class A{}
+                   public class B extends A{}
+                   public class C extends A{}
                    
+    Multiple Inheritance
+    
+                    public class A{}
+                    public class B{}
+                    public class C extends A,B{
+                    } //Java does not support multiple inheritance
+                    
+    A very important fact to remember is that Java does not support multiple inheritance. This means that
+    a class cannot extend more than one class. Therefore the following is illegal
+    
+                    public class extends Animal, Mammal{}
+                    
+    However, a class can implement one or more interfaces. This has made Java get rid of the impossibility of multiple inheritance.
+                 
+                  
+        
+                 
                   
         
 
