@@ -182,7 +182,51 @@ achieve inheritance.
     Now, based on the above example, in object oriented terms, the following are true:
      - animal is the superclass of Reptile class
      - animal is the superclass of Reptile class
-       
+     - mammal and reptile are subclasses of Animal class
+     -dog is the subclass of both Mammal and Animal classes
+     
+    Now if we consider an is-A relationship, we can say
+     -Mammal is-A Animal
+     -Reptile is-A Animal
+     -Dog is-A Mammal
+     -Hence, dog is-A mammal as well
+     
+With the use of extends keyword the subclasses will be able to inherit all the properties of the superclass
+except for the private properties of the superclass.
+We can assure that Mammal is actually an Animal with the use of the instance operator.
+
+<h2>Example</h2>
+
+         class Animal {
+          }
+         class Mammal extends Animal {
+         }
+         public class Dog extends Mammal {
+          public static void main(String args[]){
+           Animal a = new Animal();
+           Mammal m = new Mammal();
+           Dog d = new Dog();
+           System.out.println(m instanceof Animal);
+           System.out.println();
+           }
+          }
+  
+  This will produce the following result.
+  
+         true
+         true
+         true
+    
+   Since we have a good understanding of the extends keyword, let us look at how the implements keyword is used
+   to get the Is-A relationship. Generally, the implements keyword is used with classes to inherit the properties 
+   of an interface. Interfaces can never be extended by a class.
+   
+   <h2>Example</h2>
+   
+                  public interface Animal {
+                   }
+                   
+                  
         
 
 
