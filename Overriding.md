@@ -72,5 +72,38 @@ In object-oriented terms, overriding means to override the functionality of an e
   - The access level cannot be more restricitive than the overriden method's access level. For example: if the superclass
      method is declared public then the overriding method cannot be either private or protected.
   - Instance methods can be overriden only if they are inherited by the subclass.
-                        
-                        }
+  - A method declared final cannot be overridden.
+  - A method declared static cannot be overridden but can be re-declared.
+  - If a method cannot be inherited, then it cannot be overridden.
+  - As a subclass within the same package as the instance's superclass can override any superclass method that is not
+    declared private or final.
+  - A subclass in a different package can only override the non-final methods declared public or protected.
+  - An overriding method can throw any uncheck exceptions, regardless of whether the overriden method throws exceptions
+    or not. However, the overriding method should not throw checked exceptions that are new or broader than the ones 
+    declared by the overriden method. The overriding method can throw narrower or fewer exceptions than the overriden 
+    method.
+  - Constructors cannot be overridden.
+  
+<h2>Using the super Keyword</h2>
+When invoking a superclass version of an overridden method, the super method is used.
+
+                    class Animal {
+                      public void move() {
+                       System.out.println("Animals can move"); 
+                           }
+                          }
+                          
+                    class Dog extends Animal {
+                      public void move() {
+                      super.move(); //invokes the super class method
+                      System.out.println("Dogs can walk and run");
+                      }
+                    }
+                    
+                    public class TestDog {
+                    public static void main(String args[]) {
+                    Animal b=new Dog(); //Animal reference but dog object
+                    b.move(); //runs the method in the dog class
+                     }
+                    }
+
