@@ -121,8 +121,29 @@ the child classes, you declare the method in the parent class as abstract.
                        public abstract class Employee{
                        private String name;
                        private String address;
-                       
+                       private int number;
+                       public abstract double computePay()
+                       //remainder of class definition
                        }
+                       
+   Declaring a method as abstract has two consequences:
+   - The class containing it must be declared abstract.
+   - Any class inheriting the current class must either override the abstract method or declare itself as abstract
+
+Note: Eventually, a descendant class has to implement the abstract method; otherwise, you would have a hierarchy 
+of abstract classes that cannot be instantiated.
+
+Suppose salary class inherits the Employee class, then it should implement the computePay() method as shown below.
+
+                         public class Salary extends Employee {
+                          private double salary; //Annual Salary
+                          public double computePay(){
+                           System.out.println("computing salary pay for" + getName());
+                           return salary/52;
+                           }
+                           //Remainder of class definition
+                           }
+                          
                       
                       
                         
